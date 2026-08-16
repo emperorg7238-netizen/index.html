@@ -51,7 +51,7 @@ function size(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*dev
 let s=[...Array(90)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.2,a:Math.random()}));
 function draw(){x.clearRect(0,0,innerWidth,innerHeight);s.forEach(q=>{q.a+=.015;x.globalAlpha=.25+.3*Math.sin(q.a);x.fillStyle='#ffd8e8';x.beginPath();x.arc(q.x,q.y,q.r,0,7);x.fill()});requestAnimationFrame(draw)}draw();
 setInterval(()=>{let e=document.createElement('div');e.className='float';e.textContent=['❤','♡','✨','💗'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(5+Math.random()*5)+'s';e.style.fontSize=(14+Math.random()*18)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),10000)},700);
-const audio=document.getElementById('music'),btn=document.getElementById('musicBtn');btn.onclick=()=>{audio.play().then(()=>btn.textContent='🎵 Playing our song ❤️').catch(()=>btn.textContent='Add "you-by-fola.mp3" beside this page first')};
+const audio=document.getElementById('music'),btn=document.getElementById('musicBtn');btn.onclick=()=>{audio.play().then(()=>btn.textContent='🎵 Playing our song ❤️').catch(()=>btn.textContent='Add "you-by-fola.mp3.m4a" beside this page first')};
 </script>
 </body>
 </html>
