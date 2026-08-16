@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>For Fathia, My Agbeke ❤️</title>
+<style>
+*{box-sizing:border-box} body{margin:0;min-height:100vh;font-family:Georgia,serif;color:#fff;background:radial-gradient(circle at 50% 15%,#5b183f,#210c20 55%,#09030a);overflow-x:hidden}
+canvas{position:fixed;inset:0;z-index:0;pointer-events:none}.wrap{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:28px}
+.card{width:min(720px,94vw);padding:42px 30px;border:1px solid rgba(255,255,255,.2);border-radius:28px;background:rgba(35,8,28,.72);box-shadow:0 20px 80px rgba(0,0,0,.55),0 0 55px rgba(255,65,140,.16);backdrop-filter:blur(12px);text-align:center}
+.small{letter-spacing:4px;text-transform:uppercase;font:12px Arial;color:#f8a8c9}.heart{font-size:54px;animation:pulse 1.8s infinite}.title{font-size:clamp(34px,8vw,62px);margin:10px 0;color:#ffd4e5;text-shadow:0 0 25px rgba(255,120,180,.35)}.subtitle{font-size:19px;color:#f6c8d9;margin-bottom:28px}
+.letter{text-align:left;line-height:1.85;font-size:18px;color:#ffeaf2}.letter p{margin:0 0 18px}.signature{text-align:right;font-style:italic;font-size:21px;color:#ffc0d8}
+button{margin-top:20px;border:0;border-radius:999px;padding:15px 25px;font-weight:bold;font-size:16px;color:#4b102f;background:#ffd2e4;cursor:pointer;box-shadow:0 8px 30px rgba(255,110,170,.25)}
+.hidden{display:none}.wish{margin-top:28px;padding:20px;border-radius:20px;background:rgba(255,255,255,.07);font-size:22px;color:#ffd3e5}.footer{margin-top:24px;font:12px Arial;color:#dba5ba}
+@keyframes pulse{50%{transform:scale(1.12);text-shadow:0 0 30px #ff5b9b}} 
+.float{position:fixed;bottom:-40px;font-size:20px;opacity:.65;animation:rise linear forwards;z-index:1}@keyframes rise{to{transform:translateY(-110vh) rotate(360deg);opacity:0}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<div class="wrap">
+<main class="card">
+<div class="small">A little something from Olamide</div>
+<div class="heart">❤️</div>
+<h1 class="title">For Fathia, My Agbeke</h1>
+<div class="subtitle">A letter from my heart to yours</div>
+
+<div id="letter" class="letter">
+<p>My dearest Fathia, my Agbeke,</p>
+<p>Sometimes I try to find the perfect words for what you mean to me, and I realize that words can only go so far. Still, I want to try, because you deserve to know just how deeply you have touched my heart.</p>
+<p>You came into my life and somehow made ordinary moments feel softer, warmer, and more beautiful. Your presence has become one of those little things I look forward to, and your smile has a way of making my heart forget whatever was weighing on it.</p>
+<p>I don't love you because everything is always perfect. I love you because even in the imperfect moments, I still choose you. I want to understand you, support you, laugh with you, grow with you, and be someone whose presence makes life feel a little lighter.</p>
+<p>Fathia, I hope you never doubt how special you are to me. You deserve a love that feels safe, genuine, patient, and intentional. And if you'll let me, I want to keep showing you that my feelings aren't just words—they're something I want to prove through the way I treat you.</p>
+<p>And since your special day is getting closer, let me say it before everyone else gets the chance: <strong>Happy birthday in advance, my love. 🎂❤️</strong> I pray this new chapter brings you peace, beautiful surprises, answered prayers, and so many reasons to smile. I hope you become even more of the woman you dream of becoming, and I hope I get to witness many of those beautiful moments beside you.</p>
+<p>No matter how many birthdays come and go, I hope you always remember this one thing: somewhere in this world, there is an Olamide who is incredibly grateful that Fathia exists.</p>
+<p>Thank you for being you. Thank you for letting me know your heart. And thank you for giving my heart somewhere beautiful to belong.</p>
+<p class="signature">Forever with a smile when I think of you,<br>Olamide ❤️</p>
+</div>
+
+<button id="musicBtn">🎵 Tap to play our song</button>
+<div class="wish">✨ Happy birthday in advance, my Agbeke. May your next chapter be as beautiful as your heart. ✨</div>
+<div class="footer">Made with love, just for Fathia ❤️</div>
+</main>
+</div>
+<audio id="music" loop preload="none">
+  <source src="you-by-fola.mp3" type="audio/mpeg">
+</audio>
+<script>
+const c=document.getElementById('stars'),x=c.getContext('2d');let W,H;
+function size(){W=c.width=innerWidth*devicePixelRatio;H=c.height=innerHeight*devicePixelRatio;x.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0)}size();addEventListener('resize',size);
+let s=[...Array(90)].map(()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.8+.2,a:Math.random()}));
+function draw(){x.clearRect(0,0,innerWidth,innerHeight);s.forEach(q=>{q.a+=.015;x.globalAlpha=.25+.3*Math.sin(q.a);x.fillStyle='#ffd8e8';x.beginPath();x.arc(q.x,q.y,q.r,0,7);x.fill()});requestAnimationFrame(draw)}draw();
+setInterval(()=>{let e=document.createElement('div');e.className='float';e.textContent=['❤','♡','✨','💗'][Math.floor(Math.random()*4)];e.style.left=Math.random()*100+'vw';e.style.animationDuration=(5+Math.random()*5)+'s';e.style.fontSize=(14+Math.random()*18)+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),10000)},700);
+const audio=document.getElementById('music'),btn=document.getElementById('musicBtn');btn.onclick=()=>{audio.play().then(()=>btn.textContent='🎵 Playing our song ❤️').catch(()=>btn.textContent='Add "you-by-fola.mp3" beside this page first')};
+</script>
+</body>
+</html>
